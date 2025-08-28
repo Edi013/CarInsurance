@@ -6,14 +6,24 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "insurancepolicy")
 public class InsurancePolicy {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "insurance_seq")
+    @SequenceGenerator(name = "insurance_seq", sequenceName = "insurance_seq", allocationSize = 1)
     private Long id;
+
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Car car;
 
+    @Column(nullable = false)
     private String provider;
+
+    @Column(nullable = false)
     private LocalDate startDate;
+
+    @Column(nullable = false)
     private LocalDate endDate; // nullable == open-ended
 
     public InsurancePolicy() {}

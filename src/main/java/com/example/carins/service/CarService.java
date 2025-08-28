@@ -1,8 +1,10 @@
 package com.example.carins.service;
 
+import com.example.carins.exception.CarNotFound;
 import com.example.carins.model.Car;
 import com.example.carins.repo.CarRepository;
 import com.example.carins.repo.InsurancePolicyRepository;
+import com.example.carins.web.dto.InsurancePolicyDto;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -24,8 +26,21 @@ public class CarService {
     }
 
     public boolean isInsuranceValid(Long carId, LocalDate date) {
-        if (carId == null || date == null) return false;
-        // TODO: optionally throw NotFound if car does not exist
+        Car car = getCarOrThrow(carId);
+
         return policyRepository.existsActiveOnDate(carId, date);
+    }
+
+    public List<InsurancePolicyDto> getHistory(Long carId) {
+        Car car = getCarOrThrow(carId);
+        return policyRepository.findByCarId(carId).stream()
+                .map(InsurancePolicyDto::tryFrom)
+                .toList();
+
+    }
+
+    public Car getCarOrThrow(Long carId) {
+        return carRepository.findById(carId)
+                .orElseThrow(() -> new CarNotFound("Car with id " + carId + " does not exist"));
     }
 }
