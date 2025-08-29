@@ -6,13 +6,8 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "insurancepolicy")
 public class InsurancePolicy {
-    //@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //    private Long id;
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "insurance_seq")
-    @SequenceGenerator(name = "insurance_seq", sequenceName = "insurance_seq", allocationSize = 1)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Car car;

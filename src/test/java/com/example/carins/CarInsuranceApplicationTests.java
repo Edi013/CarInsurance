@@ -17,6 +17,7 @@ class CarInsuranceApplicationTests {
 
     @Test
     void insuranceValidityBasic() {
+
         assertTrue(service.isInsuranceValid(1L, LocalDate.parse("2024-06-01")));
         assertTrue(service.isInsuranceValid(1L, LocalDate.parse("2025-06-01")));
         assertFalse(service.isInsuranceValid(2L, LocalDate.parse("2025-02-01")));

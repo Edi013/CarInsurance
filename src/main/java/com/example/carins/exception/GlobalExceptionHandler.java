@@ -5,16 +5,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-        import java.time.format.DateTimeParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+    @ExceptionHandler({MethodArgumentTypeMismatchException.class, DateTimeParseException.class})
+    public ResponseEntity<ErrorResponse> handleInvalidParameter(MethodArgumentTypeMismatchException ex) {
+        String message;
+        if (ex.getRequiredType() == LocalDate.class) {
+            message = "The provided date is invalid or not in yyyy-MM-dd format.";
+        } else {
+            String paramType = ex.getRequiredType() != null ? ex.getRequiredType().getSimpleName() : "unknown";
+            message = "Invalid path parameter: " + ex.getName() + " must be " + paramType;
+        }
 
-    @ExceptionHandler({ DateTimeParseException.class, MethodArgumentTypeMismatchException.class })
-    public ResponseEntity<?> handleInvalidDate(Exception ex) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "The provided date is invalid or not in yyyy-MM-dd format."));
+                .body(new ErrorResponse(HttpStatus.BAD_REQUEST.value(), message));
     }
 
     @ExceptionHandler(CarNotFound.class)

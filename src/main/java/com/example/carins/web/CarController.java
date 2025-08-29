@@ -2,22 +2,22 @@ package com.example.carins.web;
 
 import com.example.carins.model.Car;
 import com.example.carins.service.CarService;
+import com.example.carins.service.CarServiceImpl;
 import com.example.carins.service.InsurancePolicyService;
+import com.example.carins.service.InsurancePolicyServiceImpl;
 import com.example.carins.web.dto.CarDto;
 import com.example.carins.web.dto.InsurancePolicyDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
-import org.hibernate.validator.constraints.Length;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -26,27 +26,25 @@ import java.util.List;
 @Validated
 public class CarController {
 
-    private final CarService service;
-    private final InsurancePolicyService insuranceService;
     private final CarService carService;
+    private final InsurancePolicyService insuranceService;
 
 
-    public CarController(CarService service, InsurancePolicyService insuranceService, CarService carService) {
-        this.service = service;
-        this.insuranceService = insuranceService;
+    public CarController(@Qualifier("carServiceImpl") CarService carService, @Qualifier("insurancePolicyServiceImpl") InsurancePolicyService insuranceService) {
         this.carService = carService;
+        this.insuranceService = insuranceService;
     }
 
     @GetMapping("/cars")
     public List<CarDto> getCars() {
-        return service.listCars().stream().map(this::toDto).toList();
+        return carService.listCars().stream().map(this::toDto).toList();
     }
 
     @GetMapping("/cars/{carId}/insurance-valid")
     public ResponseEntity<?> isInsuranceValid(
             @PathVariable Long carId,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
-        boolean valid = service.isInsuranceValid(carId, date);
+        boolean valid = carService.isInsuranceValid(carId, date);
         return ResponseEntity.ok(new InsuranceValidityResponse(carId, date.toString(), valid));
     }
 
