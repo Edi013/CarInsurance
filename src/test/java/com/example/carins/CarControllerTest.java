@@ -35,9 +35,14 @@ public class CarControllerTest {
 
     @Test
     public void havingInvalidCarIdFormat_whenClientChecksInsuranceValidity_shouldReturn400() throws Exception {
-        mockMvc.perform(get("/api/cars/{carId}/insurance-valid", "123q")
+        //Arrange
+        String invalidCarId = "invalid-car-id";
+
+        //Act
+        mockMvc.perform(get("/api/cars/{carId}/insurance-valid", invalidCarId)
                         .param("date", validDate.toString())
                         .accept(MediaType.APPLICATION_JSON))
+        //Assert
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.code").value(400))
                 .andExpect(jsonPath("$.message").value("Invalid path parameter: carId must be Long"));

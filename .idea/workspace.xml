@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5aedf1ab-9e2c-430e-a63c-e31169458272" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/carins/CarControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/carins/CarInsuranceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/carins/CarInsuranceApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/carins/CarControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/carins/CarControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +52,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.CarControllerTest.havingValidCarIdAndDate_whenCheckInsurance_thenReturn200">
+  <component name="RunManager" selected="JUnit.CarControllerTest">
     <configuration name="CarControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="car-insurance" />
       <extension name="coverage">
@@ -133,8 +131,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CarControllerTest.havingValidCarIdAndDate_whenCheckInsurance_thenReturn200" />
         <item itemvalue="JUnit.CarControllerTest" />
+        <item itemvalue="JUnit.CarControllerTest.havingValidCarIdAndDate_whenCheckInsurance_thenReturn200" />
         <item itemvalue="JUnit.CarControllerTest.havingInvalidDate_whenClientChecksInsuranceValidity_shouldReturn404" />
         <item itemvalue="Spring Boot.CarInsuranceApplication" />
         <item itemvalue="JUnit.CarControllerTest.havingValidCarIdFormat_whenClientChecksInsuranceValidityAndNonExistingCar_shouldReturn404" />
@@ -149,7 +147,7 @@
       <option name="presentableId" value="Default" />
       <updated>1756447751672</updated>
       <workItem from="1756447753996" duration="3937000" />
-      <workItem from="1756462172512" duration="2980000" />
+      <workItem from="1756462172512" duration="3086000" />
     </task>
     <servers />
   </component>
