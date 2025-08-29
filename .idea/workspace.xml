@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5aedf1ab-9e2c-430e-a63c-e31169458272" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/carins/model/InsurancePolicyLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/carins/repo/InsurancePolicyLogRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/carins/scheduler/PolicyExpirationLogger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/carins/CarInsuranceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/carins/CarInsuranceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/carins/repo/InsurancePolicyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/carins/repo/InsurancePolicyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/carins/scheduler/PolicyExpirationLogger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/carins/scheduler/PolicyExpirationLogger.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.CarInsuranceApplication.executor": "Run",
-    "git-widget-placeholder": "feature-D",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -163,7 +156,7 @@
       <option name="presentableId" value="Default" />
       <updated>1756447751672</updated>
       <workItem from="1756447753996" duration="3937000" />
-      <workItem from="1756462172512" duration="5347000" />
+      <workItem from="1756462172512" duration="5569000" />
     </task>
     <servers />
   </component>

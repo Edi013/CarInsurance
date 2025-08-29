@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "43f69ba9-a867-4b29-9681-1bc7bf000a53",
+		"name": "CarInsurance",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21990384"
+	},
+	"item": [
+		{
+			"name": "CarController",
+			"item": [
+				{
+					"name": "Get Cars",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{carsUrl}}",
+							"host": [
+								"{{baseUrl}}{{carsUrl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Insurance Validity",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{carsUrl}}/{{carId}}/insurance-valid?date=2025-08-28",
+							"host": [
+								"{{baseUrl}}{{carsUrl}}"
+							],
+							"path": [
+								"{{carId}}",
+								"insurance-valid"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2025-08-28",
+									"description": "validDate"
+								},
+								{
+									"key": "date",
+									"value": "28-08-2025",
+									"description": "invalidDate",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Insurance",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"claimDate\": \"2021-08-29\",\n  \"description\": \"PKG Insurance\",\n  \"amount\": 12\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{carsUrl}}/1/claims",
+							"host": [
+								"{{baseUrl}}{{carsUrl}}"
+							],
+							"path": [
+								"1",
+								"claims"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Car History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{carsUrl}}/1/history",
+							"host": [
+								"{{baseUrl}}{{carsUrl}}"
+							],
+							"path": [
+								"1",
+								"history"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:18080/api",
+			"type": "string"
+		},
+		{
+			"key": "carsUrl",
+			"value": "/cars",
+			"type": "string"
+		},
+		{
+			"key": "carId",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
