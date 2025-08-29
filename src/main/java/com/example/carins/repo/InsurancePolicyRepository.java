@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface InsurancePolicyRepository extends JpaRepository<InsurancePolicy, Long> {
@@ -19,4 +18,8 @@ public interface InsurancePolicyRepository extends JpaRepository<InsurancePolicy
     boolean existsActiveOnDate(@Param("carId") Long carId, @Param("date") LocalDate date);
 
     List<InsurancePolicy> findByCarId(Long carId);
+
+    List<InsurancePolicy> findAllByEndDateBetween(LocalDate start, LocalDate end);
+
+    List<InsurancePolicy> findAllByEndDateBefore(LocalDate date);
 }
