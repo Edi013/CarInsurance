@@ -64,6 +64,9 @@ Implemented features:
 - `START_DATE` (DATE, not null)
 - `END_DATE` (DATE)
 
+**INSURANCEPOLICYLOG**
+- `POLICYID` (BIGINT, PK, FK -> INSURANCEPOLICY.ID, not null)
+
 ## 5) Candidate Tasks
 
 Please treat these as production-quality changes: add validation, return proper HTTP status codes, and include minimal tests.
